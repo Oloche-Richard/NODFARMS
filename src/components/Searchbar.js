@@ -12,7 +12,7 @@ export default function SearchBar({
      <View  style={styles.searchContainer} >
            <Feather
            name='menu' 
-           size={20} 
+           size={25} 
            color='black' />
 
                  <View        
