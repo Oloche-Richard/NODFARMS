@@ -8,70 +8,85 @@ export default function SearchBar({
   setCLicked
 }) {
   return (
-    <View style={styles.container}>
-      <View
-        style={
-          clicked ? styles.searchBar__clicked : styles.searchBar__unclicked
-        }
-      >
-        <Feather name="search" size={20} color="black" />
-        <TextInput
-          style={styles.input}
-          placeholder="Search"
-          value={searchPhrase}
-          onChangeText={setSearchPhrase}
-          onFocus={() => {
+        <View style={styles.container}>
+     <View  style={styles.searchContainer} >
+           <Feather
+           name='menu' 
+           size={20} 
+           color='black' />
+
+                 <View        
+       style={
+          clicked
+            ? styles.searchBar__clicked
+            : styles.searchBar__unclicked
+        }>
+
+          <Feather
+           name='search' 
+           size={20} 
+           color='black'
+          />
+          <TextInput
+            style={styles.input}
+            placeholder='Search'
+            value={searchPhrase}
+            onChangeText={setSearchPhrase}
+            onFocus={() => {
             setClicked(true);
           }}
-        />
+          />
       </View>
-      {clicked && (
-        <Entypo
-          name="cross"
-          size={20}
+       </View>
+
+            {clicked && (
+          <Entypo 
+          name="cross" 
+          size={20} 
           color="black"
-          style={{ padding: 1 }}
+          style={{ padding: 1 }} 
           onPress={() => {
-            setSearchPhrase("");
-          }}
-        />
-      )}
-      {clicked && (
+          setSearchPhrase("")
+          }}/>
+        )}
+         {clicked && (
         <View>
           <Button
             title="Cancel"
             onPress={() => {
               Keyboard.dismiss();
               setClicked(false);
-            }}
-          ></Button>
+            }}>
+            </Button>
         </View>
-      )}
+         )}
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
     margin: 15,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    width: "90%"
+    width: "80%",
   },
 
-  input: {
-    width: "90%",
-    fontSize: 20,
-    marginLeft: 10
+  input:{
+    width: '90%',
+    fontSize: 15,
+    marginLeft: 10,
+    outline:'none'
   },
-  searchBar__unclicked: {
+    searchBar__unclicked: {
     padding: 10,
     flexDirection: "row",
     width: "95%",
     backgroundColor: "#d9dbda",
     borderRadius: 15,
-    alignItems: "center"
+    alignItems: "center",
+    // marginLeft:30,
   },
   searchBar__clicked: {
     padding: 10,
@@ -80,6 +95,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#d9dbda",
     borderRadius: 15,
     alignItems: "center",
-    justifyContent: "space-evenly"
+    justifyContent: "center",
+  },
+
+  searchContainer: {
+    flex: 1,
+    flexDirection:'row',
+    justifyContent: 'space-evenly',
+    alignItems:'center'
+
   }
-});
+})
