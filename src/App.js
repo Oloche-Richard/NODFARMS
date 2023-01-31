@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 import Header from "./components/Header/Header";
-import SearchBar from "./components/Header/SearchBar";
+import SearchBar from './components/SearchBar' archBar";
 // You can import from local files
 
 // or any pure javascript modules available in npm
